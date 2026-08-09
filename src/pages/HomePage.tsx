@@ -29,7 +29,7 @@ export function HomePage() {
   return (
     <div>
       {/* Hero */}
-      <section className="mb-10 grid overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-bleu-50/60 dark:border-slate-800 dark:from-slate-900 dark:via-slate-950 dark:to-bleu-950/30 lg:grid-cols-[minmax(0,1fr)_22rem]">
+      <section className="mb-10 grid overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-bleu-50/60 dark:border-slate-800 dark:from-slate-900 dark:via-slate-950 dark:to-bleu-950/30 lg:grid-cols-[minmax(0,1fr)_28rem]">
         <div className="flex flex-col items-center px-6 py-12 text-center sm:px-10 lg:items-start lg:py-14 lg:text-left">
           <span className="mb-4 inline-flex items-center gap-2 rounded-full bg-bleu-50 px-3.5 py-1.5 text-xs font-semibold text-bleu-700 dark:bg-bleu-950 dark:text-bleu-300">
             <Sparkles className="h-3.5 w-3.5" /> Your personal French knowledge base
@@ -46,15 +46,15 @@ export function HomePage() {
         </div>
 
         <aside className="border-t border-slate-200/80 bg-white/70 p-6 dark:border-slate-800 dark:bg-slate-900/60 lg:border-l lg:border-t-0 lg:p-7">
-          <div className="mb-5 flex items-center gap-3">
+          <div className="mb-7 flex flex-col items-center text-center">
             <img
               src={dheerajProfile}
               alt="Dheeraj Gurrapu"
-              className="h-12 w-12 rounded-full border-2 border-white object-cover object-[center_28%] shadow-sm ring-1 ring-bleu-200 dark:border-slate-900 dark:ring-bleu-800"
+              className="h-52 w-52 rounded-full border-4 border-white object-cover object-[center_28%] shadow-xl ring-4 ring-bleu-200 dark:border-slate-900 dark:ring-bleu-800 sm:h-60 sm:w-60"
             />
-            <div>
+            <div className="mt-4">
               <p className="text-xs font-medium text-slate-500 dark:text-slate-400">Founder & student</p>
-              <p className="font-display text-lg font-semibold text-slate-800 dark:text-slate-100">Dheeraj Gurrapu</p>
+              <p className="font-display text-2xl font-semibold text-slate-800 dark:text-slate-100">Dheeraj Gurrapu</p>
             </div>
           </div>
           <div className="border-l-2 border-rouge-400 pl-3.5">
