@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
-import { Clock, Sparkles } from 'lucide-react';
+import { Clock, Sparkles, Target } from 'lucide-react';
+import dheerajProfile from '@/assets/dheeraj-gurrapu-profile.png';
 import { useAllResources } from '@/hooks/useResources';
 import { useRecentlyViewedResources } from '@/hooks/useFavoritesAndRecents';
 import { SearchBar } from '@/components/ui/SearchBar';
@@ -28,19 +29,43 @@ export function HomePage() {
   return (
     <div>
       {/* Hero */}
-      <section className="mb-10 flex flex-col items-center rounded-3xl border border-slate-200 bg-gradient-to-b from-white to-slate-50 px-6 py-14 text-center dark:border-slate-800 dark:from-slate-900 dark:to-slate-950">
-        <span className="mb-4 inline-flex items-center gap-2 rounded-full bg-bleu-50 px-3.5 py-1.5 text-xs font-semibold text-bleu-700 dark:bg-bleu-950 dark:text-bleu-300">
-          <Sparkles className="h-3.5 w-3.5" /> Your personal French knowledge base
-        </span>
-        <h1 className="font-display max-w-2xl text-balance text-3xl font-bold text-slate-800 dark:text-slate-100 sm:text-4xl">
-          My French Study Hub
-        </h1>
-        <p className="mt-3 max-w-xl text-balance text-slate-500 dark:text-slate-400">
-          Everything I need to learn, revise and practise French — all in one place.
-        </p>
-        <div className="mt-7 w-full max-w-lg">
-          <SearchBar size="lg" navigateOnSubmit placeholder="🔍 Search my French notes…" autoFocus={false} />
+      <section className="mb-10 grid overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-bleu-50/60 dark:border-slate-800 dark:from-slate-900 dark:via-slate-950 dark:to-bleu-950/30 lg:grid-cols-[minmax(0,1fr)_22rem]">
+        <div className="flex flex-col items-center px-6 py-12 text-center sm:px-10 lg:items-start lg:py-14 lg:text-left">
+          <span className="mb-4 inline-flex items-center gap-2 rounded-full bg-bleu-50 px-3.5 py-1.5 text-xs font-semibold text-bleu-700 dark:bg-bleu-950 dark:text-bleu-300">
+            <Sparkles className="h-3.5 w-3.5" /> Your personal French knowledge base
+          </span>
+          <h1 className="font-display max-w-2xl text-balance text-3xl font-bold text-slate-800 dark:text-slate-100 sm:text-4xl">
+            My French Study Hub
+          </h1>
+          <p className="mt-3 max-w-xl text-balance text-slate-500 dark:text-slate-400">
+            Everything I need to learn, revise and practise French — all in one place.
+          </p>
+          <div className="mt-7 w-full max-w-lg">
+            <SearchBar size="lg" navigateOnSubmit placeholder="🔍 Search my French notes…" autoFocus={false} />
+          </div>
         </div>
+
+        <aside className="border-t border-slate-200/80 bg-white/70 p-6 dark:border-slate-800 dark:bg-slate-900/60 lg:border-l lg:border-t-0 lg:p-7">
+          <div className="mb-5 flex items-center gap-3">
+            <img
+              src={dheerajProfile}
+              alt="Dheeraj Gurrapu"
+              className="h-12 w-12 rounded-full border-2 border-white object-cover object-[center_28%] shadow-sm ring-1 ring-bleu-200 dark:border-slate-900 dark:ring-bleu-800"
+            />
+            <div>
+              <p className="text-xs font-medium text-slate-500 dark:text-slate-400">Founder & student</p>
+              <p className="font-display text-lg font-semibold text-slate-800 dark:text-slate-100">Dheeraj Gurrapu</p>
+            </div>
+          </div>
+          <div className="border-l-2 border-rouge-400 pl-3.5">
+            <p className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.12em] text-rouge-700 dark:text-rouge-300">
+              <Target className="h-3.5 w-3.5" /> Purpose
+            </p>
+            <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+              A personal French study hub where I can organize my class notes, worksheets, vocabulary, grammar, and revision material in one place for easy reference and studying.
+            </p>
+          </div>
+        </aside>
       </section>
 
       {/* Quick access */}

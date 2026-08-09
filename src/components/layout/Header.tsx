@@ -5,6 +5,7 @@ import clsx from 'clsx';
 import { Logo } from './Logo';
 import { SearchBar } from '@/components/ui/SearchBar';
 import { useDarkMode } from '@/hooks/useDarkMode';
+import dheerajProfile from '@/assets/dheeraj-gurrapu-profile.png';
 
 const NAV_ITEMS = [
   { to: '/', label: 'Home', end: true },
@@ -117,6 +118,18 @@ export function Header() {
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
+
+          <div className="ml-1 hidden items-center gap-2 border-l border-slate-200 pl-3 sm:flex dark:border-slate-800">
+            <img
+              src={dheerajProfile}
+              alt="Dheeraj Gurrapu"
+              className="h-8 w-8 rounded-full border-2 border-white object-cover object-[center_28%] shadow-sm ring-1 ring-bleu-200 dark:border-slate-900 dark:ring-bleu-800"
+            />
+            <div className="leading-tight">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-400 dark:text-slate-500">Student</p>
+              <p className="text-xs font-semibold text-slate-700 dark:text-slate-200">Dheeraj Gurrapu</p>
+            </div>
+          </div>
         </div>
       </div>
 
