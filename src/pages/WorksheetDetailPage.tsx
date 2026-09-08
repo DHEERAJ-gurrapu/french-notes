@@ -35,8 +35,6 @@ export function WorksheetDetailPage() {
         id={worksheet.id}
         tags={worksheet.tags}
         meta={`Dated ${formatDate(worksheet.date)}`}
-        editHref={`/admin/worksheet/${worksheet.id}/edit`}
-        listHref="/worksheets"
       />
 
       {worksheet.description && (
@@ -51,7 +49,7 @@ export function WorksheetDetailPage() {
           <EmptyState
             icon={FileStack}
             title="No files attached"
-            description="Edit this worksheet to upload a question sheet, your answers or corrections."
+            description="There are no files attached to this worksheet."
           />
         ) : (
           <>

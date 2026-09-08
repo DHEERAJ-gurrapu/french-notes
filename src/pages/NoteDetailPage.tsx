@@ -29,8 +29,6 @@ export function NoteDetailPage() {
         id={note.id}
         tags={note.tags}
         meta={`Added ${formatDate(note.createdAt)}`}
-        editHref={`/admin/note/${note.id}/edit`}
-        listHref="/notes"
       />
       {note.description && (
         <p className="mb-4 text-slate-600 dark:text-slate-300">{note.description}</p>

@@ -17,9 +17,6 @@ import { SearchPage } from '@/pages/SearchPage';
 import { TagsIndexPage } from '@/pages/TagsIndexPage';
 import { TagDetailPage } from '@/pages/TagDetailPage';
 import { FavoritesPage } from '@/pages/FavoritesPage';
-import { AdminHomePage } from '@/pages/admin/AdminHomePage';
-import { AdminResourceListPage } from '@/pages/admin/AdminResourceListPage';
-import { AdminResourceFormPage } from '@/pages/admin/AdminResourceFormPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 
 function App() {
@@ -51,11 +48,6 @@ function App() {
           <Route path="tags" element={<TagsIndexPage />} />
           <Route path="tags/:tag" element={<TagDetailPage />} />
           <Route path="favorites" element={<FavoritesPage />} />
-
-          <Route path="admin" element={<AdminHomePage />} />
-          <Route path="admin/:type" element={<AdminResourceListPage />} />
-          <Route path="admin/:type/new" element={<AdminResourceFormPage />} />
-          <Route path="admin/:type/:id/edit" element={<AdminResourceFormPage />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Route>

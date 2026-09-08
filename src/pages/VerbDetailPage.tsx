@@ -40,8 +40,6 @@ export function VerbDetailPage() {
         id={verb.id}
         tags={verb.tags}
         meta={verb.englishMeaning}
-        editHref={`/admin/verb/${verb.id}/edit`}
-        listHref="/verbs"
       />
 
       <div className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">

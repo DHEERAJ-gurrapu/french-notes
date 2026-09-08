@@ -19,13 +19,11 @@ export function GrammarListPage() {
       icon={BookOpen}
       title="Grammar"
       description="Grammar rules, categorised from the basics through to full tenses."
-      addHref="/admin/grammar/new"
-      addLabel="Add grammar topic"
       getSearchableText={(g) => `${g.title} ${g.description ?? ''} ${g.content} ${g.tags.join(' ')}`}
       getFilterValue={(g) => SECTION_LABELS[g.section]}
       filterLabel="categories"
       emptyTitle="No grammar topics yet"
-      emptyDescription="Add your first grammar topic to start building your reference library."
+      emptyDescription="Grammar topics will appear here when available."
     />
   );
 }

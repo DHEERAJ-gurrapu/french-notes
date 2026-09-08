@@ -20,8 +20,6 @@ export function VerbsListPage() {
       icon={GraduationCap}
       title="Verbs"
       description="Full conjugation tables across present, past and future tenses."
-      addHref="/admin/verb/new"
-      addLabel="Add verb"
       getSearchableText={(v) =>
         `${v.infinitive} ${v.englishMeaning} ${v.tags.join(' ')} ${v.conjugations
           .flatMap((c) => c.rows.map((r) => r.form))
@@ -30,7 +28,7 @@ export function VerbsListPage() {
       getFilterValue={(v) => GROUP_LABEL[v.group]}
       filterLabel="groups"
       emptyTitle="No verbs yet"
-      emptyDescription="Add your first verb conjugation to start building your reference."
+      emptyDescription="Verb conjugations will appear here when available."
       renderItem={(verb) => <VerbCard key={verb.id} verb={verb} />}
     />
   );

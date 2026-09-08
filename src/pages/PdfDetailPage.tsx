@@ -30,8 +30,6 @@ export function PdfDetailPage() {
         id={pdf.id}
         tags={pdf.tags}
         meta={`Added ${formatDate(pdf.createdAt)}`}
-        editHref={`/admin/pdf/${pdf.id}/edit`}
-        listHref="/pdfs"
       />
       {pdf.description && <p className="mb-4 text-slate-600 dark:text-slate-300">{pdf.description}</p>}
       <FileViewerPanel

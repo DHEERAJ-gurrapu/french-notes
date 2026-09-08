@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Menu, X, Sun, Moon, Settings, Search as SearchIcon, Star, Tag as TagIcon } from 'lucide-react';
+import { Menu, X, Sun, Moon, Search as SearchIcon, Star, Tag as TagIcon } from 'lucide-react';
 import clsx from 'clsx';
 import { Logo } from './Logo';
 import { SearchBar } from '@/components/ui/SearchBar';
@@ -96,20 +96,6 @@ export function Header() {
           >
             {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </button>
-          <NavLink
-            to="/admin"
-            className={({ isActive }) =>
-              clsx(
-                'hidden rounded-lg p-2 sm:block',
-                isActive
-                  ? 'bg-bleu-50 text-bleu-700 dark:bg-bleu-950 dark:text-bleu-300'
-                  : 'text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800',
-              )
-            }
-            aria-label="Admin"
-          >
-            <Settings className="h-5 w-5" />
-          </NavLink>
           <button
             type="button"
             onClick={() => setMobileOpen((v) => !v)}
@@ -187,20 +173,6 @@ export function Header() {
               }
             >
               Tags
-            </NavLink>
-            <NavLink
-              to="/admin"
-              onClick={() => setMobileOpen(false)}
-              className={({ isActive }) =>
-                clsx(
-                  'rounded-lg px-3 py-2.5 text-sm font-medium',
-                  isActive
-                    ? 'bg-bleu-50 text-bleu-700 dark:bg-bleu-950 dark:text-bleu-300'
-                    : 'text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800',
-                )
-              }
-            >
-              Admin
             </NavLink>
           </div>
         </nav>

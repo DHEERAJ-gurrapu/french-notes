@@ -34,8 +34,6 @@ export function GrammarDetailPage() {
         title={topic.title}
         id={topic.id}
         tags={topic.tags}
-        editHref={`/admin/grammar/${topic.id}/edit`}
-        listHref="/grammar"
       />
       {topic.description && <p className="mb-4 text-slate-600 dark:text-slate-300">{topic.description}</p>}
 
