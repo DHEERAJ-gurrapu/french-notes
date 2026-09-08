@@ -89,6 +89,8 @@ export interface PdfDocument extends BaseResource {
   category: string;
   fileId: string;
   fileName: string;
+  /** Optional bundled PDF URL for study documents that ship with the app. */
+  publicUrl?: string;
 }
 
 export type Resource =

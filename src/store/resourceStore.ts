@@ -40,6 +40,17 @@ export const useResourceStore = create<ResourceStore>()(
       },
       resetToSeed: () => set({ resources: seedResources }),
     }),
-    { name: 'french-hub:resources:v1' },
+    {
+      name: 'french-hub:resources:v1',
+      // Existing users keep every saved resource and edit. New bundled study
+      // material is appended by id as local storage is merged with the seed.
+      merge: (persistedState, currentState) => {
+        const persisted = persistedState as Partial<ResourceStore>;
+        const savedResources = persisted.resources ?? currentState.resources;
+        const savedIds = new Set(savedResources.map((resource) => resource.id));
+        const additions = seedResources.filter((resource) => !savedIds.has(resource.id));
+        return { ...currentState, ...persisted, resources: [...additions, ...savedResources] };
+      },
+    },
   ),
 );

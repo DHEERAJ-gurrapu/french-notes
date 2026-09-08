@@ -1,6 +1,39 @@
 import type { GrammarTopic } from '@/types';
 
 export const grammarSeed: GrammarTopic[] = [
+  {
+    id: 'gram_passe_compose_notebook',
+    type: 'grammar',
+    section: 'tenses',
+    title: 'Le passé composé - révision du cahier',
+    description: 'Using avoir or être, past participles, accents and agreement with être.',
+    tags: ['tenses', 'passé composé', 'avoir', 'être', 'agreement', 'unit-2'],
+    createdAt: '2026-09-08T09:00:00.000Z',
+    updatedAt: '2026-09-08T09:00:00.000Z',
+    content: `### Formation
+Le passé composé = auxiliaire au présent (**avoir** ou **être**) + participe passé.
+
+Les verbes réguliers ont souvent ces participes passés : **-er → -é**, **-ir → -i**, **-re → -u**. L'accent de **-é** est important.
+
+### Avec avoir
+La plupart des verbes utilisent **avoir** : *J'ai regardé une vidéo.* · *Tu as attendu longtemps.* · *Elle a choisi le musée du Louvre.*
+
+### Avec être
+Certains verbes de mouvement utilisent **être**. Le participe passé s'accorde avec le sujet :
+
+| Sujet | Exemple |
+|---|---|
+| Je (f.) | Je suis allée |
+| Nous (mixte / masc.) | Nous sommes allés |
+| Nous (f.) | Nous sommes allées |
+
+Les verbes irréguliers doivent être mémorisés.`,
+    examples: [
+      { fr: 'J’ai regardé une vidéo très intéressante.', en: 'I watched a very interesting video.' },
+      { fr: 'Tu as attendu longtemps dans la queue à la tour Eiffel.', en: 'You waited a long time in the queue at the Eiffel Tower.' },
+      { fr: 'Elle a choisi le musée du Louvre.', en: 'She chose the Louvre Museum.' },
+    ],
+  },
   // ---- BASICS ----
   {
     id: 'gram_alphabet',

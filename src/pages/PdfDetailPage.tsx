@@ -34,7 +34,12 @@ export function PdfDetailPage() {
         listHref="/pdfs"
       />
       {pdf.description && <p className="mb-4 text-slate-600 dark:text-slate-300">{pdf.description}</p>}
-      <FileViewerPanel fileId={pdf.fileId} kind="pdf" fileName={pdf.fileName} />
+      <FileViewerPanel
+        fileId={pdf.fileId}
+        kind="pdf"
+        fileName={pdf.fileName}
+        publicUrl={pdf.publicUrl}
+      />
     </div>
   );
 }

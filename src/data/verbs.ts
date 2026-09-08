@@ -33,6 +33,18 @@ function table(tense: string, forms: string[]) {
 }
 
 export const verbsSeed: Verb[] = [
+  verb('verb_jouer', 'jouer', 'to play', 'er', ['regular', 'er verbs', 'leisure', 'unit-3'], [
+    table('Présent', ['joue', 'joues', 'joue', 'jouons', 'jouez', 'jouent']),
+    table('Passé composé', ['ai joué', 'as joué', 'a joué', 'avons joué', 'avez joué', 'ont joué']),
+  ]),
+  verb('verb_regarder', 'regarder', 'to watch / look at', 'er', ['regular', 'er verbs', 'media', 'unit-2'], [
+    table('Présent', ['regarde', 'regardes', 'regarde', 'regardons', 'regardez', 'regardent']),
+    table('Passé composé', ['ai regardé', 'as regardé', 'a regardé', 'avons regardé', 'avez regardé', 'ont regardé']),
+  ]),
+  verb('verb_choisir', 'choisir', 'to choose', 'ir', ['regular', 'ir verbs', 'unit-2'], [
+    table('Présent', ['choisis', 'choisis', 'choisit', 'choisissons', 'choisissez', 'choisissent']),
+    table('Passé composé', ['ai choisi', 'as choisi', 'a choisi', 'avons choisi', 'avez choisi', 'ont choisi']),
+  ]),
   verb('verb_etre', 'être', 'to be', 'irregular', ['irregular', 'être', 'core'], [
     table('Présent', ['suis', 'es', 'est', 'sommes', 'êtes', 'sont']),
     table('Passé composé', ["ai été", "as été", "a été", "avons été", "avez été", "ont été"]),

@@ -5,12 +5,14 @@ interface FileViewerPanelProps {
   fileId: string;
   kind: 'pdf' | 'image';
   fileName: string;
+  publicUrl?: string;
 }
 
-export function FileViewerPanel({ fileId, kind, fileName }: FileViewerPanelProps) {
+export function FileViewerPanel({ fileId, kind, fileName, publicUrl }: FileViewerPanelProps) {
   const { url, loading } = useFileUrl(fileId);
+  const displayUrl = url ?? publicUrl;
 
-  if (loading) {
+  if (loading && !publicUrl) {
     return (
       <div className="flex h-72 items-center justify-center rounded-xl border border-slate-200 text-slate-400 dark:border-slate-800">
         <Loader2 className="h-6 w-6 animate-spin" />
@@ -18,7 +20,7 @@ export function FileViewerPanel({ fileId, kind, fileName }: FileViewerPanelProps
     );
   }
 
-  if (!url) {
+  if (!displayUrl) {
     return (
       <div className="flex flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-slate-300 py-16 text-center dark:border-slate-700">
         <FileX className="h-6 w-6 text-slate-400" />
@@ -34,7 +36,7 @@ export function FileViewerPanel({ fileId, kind, fileName }: FileViewerPanelProps
       <div className="flex items-center justify-between border-b border-slate-200 bg-slate-50 px-4 py-2 dark:border-slate-800 dark:bg-slate-800/50">
         <span className="truncate text-sm text-slate-600 dark:text-slate-300">{fileName}</span>
         <a
-          href={url}
+          href={displayUrl}
           target="_blank"
           rel="noreferrer"
           className="flex shrink-0 items-center gap-1 text-xs font-medium text-bleu-600 hover:underline dark:text-bleu-400"
@@ -43,9 +45,9 @@ export function FileViewerPanel({ fileId, kind, fileName }: FileViewerPanelProps
         </a>
       </div>
       {kind === 'pdf' ? (
-        <iframe src={url} title={fileName} className="h-[70vh] w-full bg-white" />
+        <iframe src={displayUrl} title={fileName} className="h-[70vh] w-full bg-white" />
       ) : (
-        <img src={url} alt={fileName} className="max-h-[70vh] w-full bg-slate-50 object-contain dark:bg-slate-900" />
+        <img src={displayUrl} alt={fileName} className="max-h-[70vh] w-full bg-slate-50 object-contain dark:bg-slate-900" />
       )}
     </div>
   );

@@ -180,4 +180,57 @@ sur (on) · devant (in front of) · sous (under) · entre (between) · derrière
 
 Example: **Le restaurant est devant la porte.** — The restaurant is in front of the door.`,
   },
+  {
+    id: 'note_postcard_messages',
+    type: 'note',
+    title: 'Écrire un message - la carte postale',
+    description: 'Unit 2: identify message formats and practise simple written communication.',
+    topic: 'Writing & Communication',
+    tags: ['writing', 'postcard', 'message', 'unit-2'],
+    createdAt: '2026-09-08T09:00:00.000Z',
+    updatedAt: '2026-09-08T09:00:00.000Z',
+    content: `## Qu'est-ce que tu vas faire ?
+
+### Objectif
+Réviser la carte postale et pratiquer les structures verbales au passé.
+
+### Types de messages
+
+- **Une carte postale** — a postcard
+- **Un blog** — a blog
+- **Un message dans les réseaux sociaux** — a social-media message
+
+### À retenir
+
+**Une promenade en bateau** — a boat trip / boat ride`,
+  },
+  {
+    id: 'note_loisirs_temps_libre',
+    type: 'note',
+    title: 'Les loisirs et le temps libre',
+    description: 'Unit 3: activities, sports, arts, reading and television vocabulary.',
+    topic: 'Leisure & Free Time',
+    tags: ['leisure', 'free time', 'sports', 'media', 'unit-3'],
+    createdAt: '2026-09-08T09:00:00.000Z',
+    updatedAt: '2026-09-08T09:00:00.000Z',
+    content: `## Quand j'ai du temps
+
+**Les loisirs** et **le temps libre** permettent de décrire ce que l'on aime faire.
+
+### La règle utile : jouer à / jouer de
+
+- **jouer au / à la / aux** + sport ou jeu : *jouer au tennis, jouer aux cartes*
+- **jouer du / de la / de l'** + instrument : *jouer du piano, jouer de la flûte*
+
+### Activités
+
+- Faire du dessin, de la peinture, du théâtre ou de la natation
+- Faire de l'équitation, du vélo, de la randonnée ou du ski
+- Sortir avec mes amis, assister à un concert, voyager
+- Écouter de la musique, lire et regarder la télévision
+
+### Médias
+
+À la télévision : un dessin animé, un documentaire, un jeu télévisé, un divertissement, le journal, les informations, une émission musicale ou sportive, une série, un feuilleton, la télé-réalité.`,
+  },
 ];
