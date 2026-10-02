@@ -4,6 +4,19 @@ import type { PdfDocument } from '@/types';
 // PDF library's "Add PDF" action to populate this shelf.
 export const pdfsSeed: PdfDocument[] = [
   {
+    id: 'pdf_typed_notes_unit_4',
+    type: 'pdf',
+    title: 'Typed notes - Unité 4 Au travail !',
+    description: 'School life, subjects, plans for next year, negatives, jobs, time expressions and the Impressionists, with grammar, verbs and vocabulary.',
+    category: 'Class notes',
+    fileId: 'bundled_typed_notes_unit_4',
+    fileName: 'French-Typed-Notes-Unit-4.pdf',
+    publicUrl: '/French-Typed-Notes-Unit-4.pdf',
+    tags: ['typed notes', 'unit-4', 'school', 'jobs', 'negatives', 'futur proche'],
+    createdAt: '2026-10-02T10:00:00.000Z',
+    updatedAt: '2026-10-02T10:00:00.000Z',
+  },
+  {
     id: 'pdf_typed_class_notes_units_1_2',
     type: 'pdf',
     title: 'Typed class notes - Units 1 & 2',

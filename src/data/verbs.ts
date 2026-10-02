@@ -113,4 +113,39 @@ export const verbsSeed: Verb[] = [
     table('Présent', ['vends', 'vends', 'vend', 'vendons', 'vendez', 'vendent']),
     table('Passé composé', ['ai vendu', 'as vendu', 'a vendu', 'avons vendu', 'avez vendu', 'ont vendu']),
   ]),
+
+  // ---- UNITÉ 4 AU TRAVAIL ! ----
+  ...[
+    verb('verb_commencer', 'commencer', 'to start / begin', 'er', ['regular', 'er verbs', 'school', 'unit-4'], [
+      table('Présent', ['commence', 'commences', 'commence', 'commençons', 'commencez', 'commencent']),
+      table('Passé composé', ['ai commencé', 'as commencé', 'a commencé', 'avons commencé', 'avez commencé', 'ont commencé']),
+      table('Futur proche', ['vais commencer', 'vas commencer', 'va commencer', 'allons commencer', 'allez commencer', 'vont commencer']),
+    ]),
+    verb('verb_apprendre', 'apprendre', 'to learn', 'irregular', ['irregular', 'school', 'unit-4'], [
+      table('Présent', ['apprends', 'apprends', 'apprend', 'apprenons', 'apprenez', 'apprennent']),
+      table('Passé composé', ['ai appris', 'as appris', 'a appris', 'avons appris', 'avez appris', 'ont appris']),
+    ]),
+    verb('verb_vouloir', 'vouloir', 'to want', 'irregular', ['irregular', 'modal verbs', 'two verbs together', 'unit-4'], [
+      table('Présent', ['veux', 'veux', 'veut', 'voulons', 'voulez', 'veulent']),
+      table('Conditionnel (I would like)', ['voudrais', 'voudrais', 'voudrait', 'voudrions', 'voudriez', 'voudraient']),
+      table('Passé composé', ['ai voulu', 'as voulu', 'a voulu', 'avons voulu', 'avez voulu', 'ont voulu']),
+    ]),
+    verb('verb_pouvoir', 'pouvoir', 'to be able to / can', 'irregular', ['irregular', 'modal verbs', 'two verbs together', 'unit-4'], [
+      table('Présent', ['peux', 'peux', 'peut', 'pouvons', 'pouvez', 'peuvent']),
+      table('Passé composé', ['ai pu', 'as pu', 'a pu', 'avons pu', 'avez pu', 'ont pu']),
+    ]),
+    verb('verb_savoir', 'savoir', 'to know (how to)', 'irregular', ['irregular', 'two verbs together', 'unit-4'], [
+      table('Présent', ['sais', 'sais', 'sait', 'savons', 'savez', 'savent']),
+      table('Passé composé', ['ai su', 'as su', 'a su', 'avons su', 'avez su', 'ont su']),
+    ]),
+    verb('verb_esperer', 'espérer', 'to hope', 'er', ['er verbs', 'accent change', 'two verbs together', 'unit-4'], [
+      table('Présent', ['espère', 'espères', 'espère', 'espérons', 'espérez', 'espèrent']),
+      table('Passé composé', ['ai espéré', 'as espéré', 'a espéré', 'avons espéré', 'avez espéré', 'ont espéré']),
+    ]),
+    verb('verb_laisser_tomber', 'laisser tomber', 'to drop (a subject) — lit. "to let fall"', 'er', ['er verbs', 'school', 'two verbs together', 'unit-4'], [
+      table('Présent', ['laisse tomber', 'laisses tomber', 'laisse tomber', 'laissons tomber', 'laissez tomber', 'laissent tomber']),
+      table('Passé composé', ['ai laissé tomber', 'as laissé tomber', 'a laissé tomber', 'avons laissé tomber', 'avez laissé tomber', 'ont laissé tomber']),
+      table('Futur proche', ['vais laisser tomber', 'vas laisser tomber', 'va laisser tomber', 'allons laisser tomber', 'allez laisser tomber', 'vont laisser tomber']),
+    ]),
+  ].map((v) => ({ ...v, createdAt: '2026-10-02T09:00:00.000Z', updatedAt: '2026-10-02T09:00:00.000Z' })),
 ];

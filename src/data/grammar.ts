@@ -1,6 +1,259 @@
 import type { GrammarTopic } from '@/types';
 
+const UNIT4_DATE = '2026-10-02T09:00:00.000Z';
+
 export const grammarSeed: GrammarTopic[] = [
+  // ---- UNITÉ 4 AU TRAVAIL ! ----
+  {
+    id: 'gram_unit4_futur_proche_negatif',
+    type: 'grammar',
+    section: 'tenses',
+    title: 'Aller + infinitif (le futur proche), aussi au négatif',
+    description: 'Unité 4B, Dossier-langue 12.9d: say what is (not) going to happen.',
+    tags: ['tenses', 'futur proche', 'aller', 'negatives', 'unit-4'],
+    createdAt: UNIT4_DATE,
+    updatedAt: UNIT4_DATE,
+    content: `### Formation
+To say what you are going to do in the near future, use the **present tense of aller + an infinitive**.
+
+| Sujet | aller | + infinitif |
+|---|---|---|
+| je | vais | travailler |
+| tu | vas | être fatigué(e) |
+| il / elle / on | va | jouer au basket |
+| nous | allons | faire de la natation |
+| vous | allez | manger à la cantine |
+| ils / elles | vont | faire du sport |
+
+### Au négatif
+Put **ne** and **pas** round the part of **aller**:
+
+**Je ne vais pas changer d'école en septembre.** — I'm not going to change schools in September.
+
+### Traduis en français (answers)
+1. Tomorrow we're going to start at 9 o'clock. → **Demain, on va commencer à 9 heures.**
+2. That's going to be boring. → **Ça va être ennuyeux.**
+3. We're not going to eat in the canteen tomorrow. → **Demain, on ne va pas manger à la cantine.**
+4. That's not going to be easy. → **Ça ne va pas être facile.**
+
+### Modèle : Ça va être comment ?
+- Demain matin, on va avoir deux heures d'EPS. — Ça va être **génial**. J'adore le sport.
+- Et l'après-midi, nous allons faire des expériences en chimie. — Ça va être **moins intéressant**.
+- Puis après l'école, on va avoir beaucoup de devoirs. — Ça **ne va pas être amusant**.`,
+    examples: [
+      { fr: 'Demain on va avoir EPS.', en: "Tomorrow we're going to have sport." },
+      { fr: 'Ça ne va pas être amusant.', en: "That's not going to be fun." },
+      { fr: 'Demain soir, on va avoir beaucoup de devoirs.', en: "Tomorrow evening we're going to have a lot of homework." },
+    ],
+  },
+  {
+    id: 'gram_unit4_two_verbs',
+    type: 'grammar',
+    section: 'verbs',
+    title: 'Deux verbes ensemble (verbe + infinitif)',
+    description: 'Unité 4C, Dossier-langue 15.1: a main verb followed by an infinitive.',
+    tags: ['verbs', 'infinitive', 'two verbs together', 'unit-4'],
+    createdAt: UNIT4_DATE,
+    updatedAt: UNIT4_DATE,
+    content: `Sometimes two (or more) verbs come together in a sentence: a **main verb** (conjugated) followed by an **infinitive** (unchanged).
+
+1. Je **vais changer** d'école en septembre.
+2. J'**espère commencer** l'espagnol.
+3. Je **voudrais être** médecin.
+4. On **peut étudier** l'art dramatique.
+5. Je **sais jouer** aux échecs.
+
+Only the **first** verb changes; the second verb stays in the infinitive.
+
+Common main verbs: **aller, aimer, adorer, détester, préférer, espérer, vouloir (je voudrais), pouvoir, savoir, devoir, il faut, laisser tomber**.
+
+### Traduis en français (answers)
+1. My friend is going to change school. → **Mon ami(e) va changer d'école.**
+2. I would like to be a pilot. → **Je voudrais être pilote.**
+3. I know how to swim. → **Je sais nager.**`,
+    examples: [
+      { fr: "J'espère commencer l'espagnol.", en: 'I hope to start Spanish.' },
+      { fr: 'Je voudrais être médecin.', en: 'I would like to be a doctor.' },
+      { fr: 'Je sais jouer aux échecs.', en: 'I know how to play chess.' },
+    ],
+  },
+  {
+    id: 'gram_unit4_negatives',
+    type: 'grammar',
+    section: 'other',
+    title: 'Les formes de la négation (ne … pas, plus, jamais, rien, personne)',
+    description: 'Unité 4D, Dossier-langue 10: different forms of the negative, including the perfect tense.',
+    tags: ['negatives', 'passé composé', 'sentence structure', 'unit-4'],
+    createdAt: UNIT4_DATE,
+    updatedAt: UNIT4_DATE,
+    content: `To make a sentence negative, put **ne / n'** and **pas** around the verb: *Je ne comprends pas l'exercice.*
+
+Other words can replace **pas**:
+
+| Négation | Sens | Exemple |
+|---|---|---|
+| ne … plus | no more, no longer | On ne fait plus d'allemand. |
+| ne … jamais | never | Je ne fais jamais mes devoirs. |
+| ne … rien | nothing | Je ne comprends rien en maths. |
+| ne … personne | nobody | Il n'y a personne ici. |
+
+### Au passé composé
+The negative goes around the **auxiliary** (avoir / être):
+- Je **n'ai pas** fait mes devoirs. — I haven't done my homework.
+- Je **ne suis jamais** allé à Paris. — I've never been to Paris.
+- Je **n'ai rien** acheté. — I didn't buy anything.
+
+With **ne … personne** the pattern is different: **personne** goes **after the past participle**.
+- On **n'a vu personne** en ville. — We didn't see anyone in town.
+
+### Seuls (on their own)
+**Jamais, rien** and **personne** can be used alone as answers:
+- Tu as visité l'Afrique ? — Non, **jamais**.
+- Qu'est-ce qu'il y a à faire ? — **Rien**.
+- Qui est là ? — **Personne**.
+
+### Ce n'est pas bien ! (answers)
+1. Je **ne** suis **pas** fort en langues.
+2. On **ne** peut **plus** faire de la natation.
+3. Le soir, il **n'**y a **plus** de bus.
+4. Il **n'**y a **rien** à faire ici.
+5. On **ne** voit **personne** dans les rues.
+6. Je **ne** comprends **pas** pourquoi ça **ne** marche **pas**.
+7. Je **ne** comprends **rien** en maths.
+8. Ce **n'**est **pas** juste. Nous **n'**utilisons **jamais** d'ordinateurs en classe.`,
+    examples: [
+      { fr: "Je n'y suis jamais allé.", en: "I've never been there." },
+      { fr: "On n'a rien fait.", en: "We didn't do anything." },
+      { fr: "Je n'ai vu personne.", en: "I didn't see anyone." },
+    ],
+  },
+  {
+    id: 'gram_unit4_jobs_feminine',
+    type: 'grammar',
+    section: 'basics',
+    title: 'Les métiers : articles et formes féminines',
+    description: 'Unité 4E, Dossier-langue 1.1, 2.2: talking about jobs and work.',
+    tags: ['basics', 'gender', 'articles', 'jobs', 'unit-4'],
+    createdAt: UNIT4_DATE,
+    updatedAt: UNIT4_DATE,
+    content: `### L'article
+When describing someone's job, you **don't** normally use the article (un/une):
+**Il est comptable. Elle est pompier.**
+
+But after **c'est**, the article is used:
+**C'est le médecin / la pharmacienne au téléphone.**
+
+### Formes féminines
+Words for jobs often have a feminine form, but there are exceptions, e.g. **médecin, pompier**.
+
+| Règle | Masculin | Féminin |
+|---|---|---|
+| 1. no change (masc. ends in -e) | vétérinaire | vétérinaire |
+| 2. add -e | employé | employée |
+| 3. -(i)er → -(i)ère | infirmier, boulanger | infirmière, boulangère |
+| 4. -eur → -euse | vendeur | vendeuse |
+| 5. -teur → -trice | instituteur | institutrice |
+| 6. -(i)en → -(i)enne | mécanicien | mécanicienne |
+
+### Une liste (answers)
+| Masculin | Féminin |
+|---|---|
+| photographe | photographe |
+| marchand (de glaces) | marchande (de glaces) |
+| caissier | caissière |
+| coiffeur | coiffeuse |
+| directeur | directrice |
+| musicien | musicienne |`,
+    examples: [
+      { fr: 'Il est comptable.', en: 'He is an accountant.' },
+      { fr: "C'est la pharmacienne au téléphone.", en: "It's the pharmacist on the phone." },
+    ],
+  },
+  {
+    id: 'gram_unit4_past_present_future',
+    type: 'grammar',
+    section: 'tenses',
+    title: 'Le passé, le présent et le futur',
+    description: 'Unité 4F, Dossier-langue 12: talking about the past, the present and the future.',
+    tags: ['tenses', 'passé composé', 'imparfait', 'present tense', 'futur proche', 'unit-4'],
+    createdAt: UNIT4_DATE,
+    updatedAt: UNIT4_DATE,
+    content: `| Le passé | Le présent | Le futur |
+|---|---|---|
+| L'année dernière, **j'ai fait** de la gymnastique et de la natation en EPS. **C'était** fatigant. | Cette année, nous **faisons** de l'athlétisme. **C'est** dur et énergique. | L'année prochaine, je **vais faire** du kayak et du VTT (vélo tout terrain). Ça **va être** super. |
+
+- **Perfect tense (passé composé):** j'ai fait
+- **Imperfect tense (imparfait):** c'était
+- **Present tense:** nous faisons, c'est
+- **Aller + infinitive (futur proche):** je vais faire, ça va être
+
+### Time markers
+- **Past:** hier, hier soir, lundi dernier, vendredi dernier, l'année dernière
+- **Future:** ce soir, dans dix minutes, demain (matin), après-demain, jeudi / samedi prochain, la semaine prochaine, le mois prochain, l'année prochaine
+
+### Une jeune photographe (answers)
+1. En juin dernier, Yassine **a commencé** à travailler à l'agence « Photos-images ».
+2. Elle **aime** beaucoup ce travail.
+3. Hier, elle **est allée** à Paris.
+4. Demain, Yassine **va prendre** des photos d'un mariage.
+5. Après-demain, elle **va aller** à Lille.
+6. Vendredi prochain, elle **va être** libre.
+7. En dehors du travail, elle **fait** généralement du sport.
+8. L'année dernière, elle **a joué** au tennis.
+9. Pendant son temps libre, elle **aime** aussi la musique.
+10. Ce soir, elle **va aller** à un concert.`,
+    examples: [
+      { fr: "Aujourd'hui, nous avons deux heures de français.", en: 'Today we have two lessons of French.' },
+      { fr: "Hier, j'ai joué un match de basket.", en: 'Yesterday I played a basketball match.' },
+      { fr: "L'année prochaine, je vais changer d'école.", en: "Next year I'm going to change school." },
+    ],
+  },
+  {
+    id: 'gram_unit4_phonetique',
+    type: 'grammar',
+    section: 'basics',
+    title: 'Phonétique : sons nasaux, terminaisons, « qu »',
+    description: 'Unité 4 pronunciation: nasal vs non-nasal sounds, -eur/-euse, -ien/-ienne, -ier/-ière and the letters qu.',
+    tags: ['basics', 'pronunciation', 'phonétique', 'unit-4'],
+    createdAt: UNIT4_DATE,
+    updatedAt: UNIT4_DATE,
+    content: `### Nasal and non-nasal sounds
+You pronounce **nasal sounds** through the nose.
+
+| Son | Exemples |
+|---|---|
+| an / am / en / em | langue, sciences, apprend |
+| in / im | intéressant, dessin, impossible |
+| on / om | option, tomber, comptable |
+| un / um | lundi, quelqu'un, parfum |
+
+The sound is **non-nasal** if:
+- there is a double **n** or **m**: ann**é**e, co**mm**e
+- **n** or **m** is followed by a vowel: a**mu**ser, é**ne**rgique
+
+Practise: chi**n**ois, de**m**i, progra**mm**e (all non-nasal).
+
+### -eur / -euse · -ien / -ienne · -ier / -ière
+Listen for the different masculine and feminine endings: vend**eur** / vend**euse**, mécanic**ien** / mécanic**ienne**, infirm**ier** / infirm**ière**.
+
+### The letters « qu »
+**qu** is normally pronounced like **k**: qu'est-ce que, quelquefois, inquiet, casquette, Afrique.
+A few exceptions are pronounced like **kw**: **équateur, aquatique, équation**.
+
+### Stratégie : spelling patterns (suffixes)
+| Français | Anglais | Exemples |
+|---|---|---|
+| -aire | -ary | ordinaire → ordinary, militaire → military, solitaire → solitary |
+| -eux | -ous | curieux → curious, nerveux → nervous, ambitieux → ambitious |
+| -ie | -y | géographie → geography, industrie → industry, écologie → ecology, Italie → Italy |
+| -ique | -ic | artistique → artistic, dramatique → dramatic, musique → music, scientifique → scientific |
+| -ement | -ly | exactement → exactly, uniquement → uniquely |
+| -oire | -ory | histoire → history, gloire → glory, mémoire → memory |`,
+    examples: [
+      { fr: 'langue, intéressant, option, lundi', en: 'nasal sounds' },
+      { fr: 'année, amuser, énergique', en: 'non-nasal sounds' },
+    ],
+  },
   {
     id: 'gram_passe_compose_notebook',
     type: 'grammar',
