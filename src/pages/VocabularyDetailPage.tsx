@@ -6,6 +6,7 @@ import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { DetailHeader } from '@/components/resources/DetailHeader';
 import { ErrorState } from '@/components/ui/ErrorState';
 import type { VocabularyEntry } from '@/types';
+import { chapterLabel } from '@/utils/chapter';
 
 const GENDER_LABEL: Record<NonNullable<VocabularyEntry['gender']>, string> = {
   m: 'masculine',
@@ -29,7 +30,7 @@ export function VocabularyDetailPage() {
       <DetailHeader
         icon={Languages}
         accent="rouge"
-        eyebrow={entry.topic}
+        eyebrow={`${chapterLabel(entry.tags)} · ${entry.topic}`}
         title={entry.french}
         id={entry.id}
         tags={entry.tags}

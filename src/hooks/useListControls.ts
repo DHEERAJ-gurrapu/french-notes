@@ -5,7 +5,7 @@ import type { Resource } from '@/types';
 export function useListControls<T extends Resource>(
   items: T[],
   getSearchableText: (item: T) => string,
-  getFilterValue?: (item: T) => string | undefined,
+  getFilterValue?: (item: T) => string | string[] | undefined,
 ) {
   const [query, setQuery] = useState('');
   const [filter, setFilter] = useState<string | null>(null);
@@ -16,7 +16,9 @@ export function useListControls<T extends Resource>(
     const counts = new Map<string, number>();
     for (const item of items) {
       const v = getFilterValue(item);
-      if (v) counts.set(v, (counts.get(v) ?? 0) + 1);
+      for (const value of (Array.isArray(v) ? v : [v])) {
+        if (value) counts.set(value, (counts.get(value) ?? 0) + 1);
+      }
     }
     return [...counts.entries()]
       .map(([value, count]) => ({ value, label: value, count }))
@@ -26,7 +28,10 @@ export function useListControls<T extends Resource>(
   const filtered = useMemo(() => {
     let result = items;
     if (filter && getFilterValue) {
-      result = result.filter((i) => getFilterValue(i) === filter);
+      result = result.filter((i) => {
+        const value = getFilterValue(i);
+        return Array.isArray(value) ? value.includes(filter) : value === filter;
+      });
     }
     if (query.trim()) {
       const q = query.trim().toLowerCase();

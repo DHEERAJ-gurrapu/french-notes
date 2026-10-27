@@ -37,7 +37,7 @@ export const verbsSeed: Verb[] = [
     table('Présent', ['joue', 'joues', 'joue', 'jouons', 'jouez', 'jouent']),
     table('Passé composé', ['ai joué', 'as joué', 'a joué', 'avons joué', 'avez joué', 'ont joué']),
   ]),
-  verb('verb_regarder', 'regarder', 'to watch / look at', 'er', ['regular', 'er verbs', 'media', 'unit-2'], [
+  verb('verb_regarder', 'regarder', 'to watch / look at', 'er', ['regular', 'er verbs', 'media', 'unit-3'], [
     table('Présent', ['regarde', 'regardes', 'regarde', 'regardons', 'regardez', 'regardent']),
     table('Passé composé', ['ai regardé', 'as regardé', 'a regardé', 'avons regardé', 'avez regardé', 'ont regardé']),
   ]),
@@ -45,13 +45,13 @@ export const verbsSeed: Verb[] = [
     table('Présent', ['choisis', 'choisis', 'choisit', 'choisissons', 'choisissez', 'choisissent']),
     table('Passé composé', ['ai choisi', 'as choisi', 'a choisi', 'avons choisi', 'avez choisi', 'ont choisi']),
   ]),
-  verb('verb_etre', 'être', 'to be', 'irregular', ['irregular', 'être', 'core'], [
+  verb('verb_etre', 'être', 'to be', 'irregular', ['irregular', 'être', 'core', 'unit-1'], [
     table('Présent', ['suis', 'es', 'est', 'sommes', 'êtes', 'sont']),
     table('Passé composé', ["ai été", "as été", "a été", "avons été", "avez été", "ont été"]),
     table('Imparfait', ['étais', 'étais', 'était', 'étions', 'étiez', 'étaient']),
     table('Futur simple', ['serai', 'seras', 'sera', 'serons', 'serez', 'seront']),
   ]),
-  verb('verb_avoir', 'avoir', 'to have', 'irregular', ['irregular', 'avoir', 'core'], [
+  verb('verb_avoir', 'avoir', 'to have', 'irregular', ['irregular', 'avoir', 'core', 'unit-1'], [
     table('Présent', ['ai', 'as', 'a', 'avons', 'avez', 'ont']),
     table('Passé composé', ['ai eu', 'as eu', 'a eu', 'avons eu', 'avez eu', 'ont eu']),
     table('Imparfait', ['avais', 'avais', 'avait', 'avions', 'aviez', 'avaient']),
@@ -69,7 +69,7 @@ export const verbsSeed: Verb[] = [
     ]),
     table('Futur simple', ['irai', 'iras', 'ira', 'irons', 'irez', 'iront']),
   ]),
-  verb('verb_faire', 'faire', 'to do / to make', 'irregular', ['irregular', 'faire'], [
+  verb('verb_faire', 'faire', 'to do / to make', 'irregular', ['irregular', 'faire', 'unit-3'], [
     table('Présent', ['fais', 'fais', 'fait', 'faisons', 'faites', 'font']),
     table('Passé composé', ['ai fait', 'as fait', 'a fait', 'avons fait', 'avez fait', 'ont fait']),
     table('Futur simple', ['ferai', 'feras', 'fera', 'ferons', 'ferez', 'feront']),
@@ -91,7 +91,7 @@ export const verbsSeed: Verb[] = [
       ]),
     ],
   ),
-  verb('verb_parler', 'parler', 'to speak (-er model verb)', 'er', ['regular', 'er verbs'], [
+  verb('verb_parler', 'parler', 'to speak (-er model verb)', 'er', ['regular', 'er verbs', 'unit-1'], [
     table('Présent', ['parle', 'parles', 'parle', 'parlons', 'parlez', 'parlent']),
     table('Passé composé', ['ai parlé', 'as parlé', 'a parlé', 'avons parlé', 'avez parlé', 'ont parlé']),
     table('Imparfait', ['parlais', 'parlais', 'parlait', 'parlions', 'parliez', 'parlaient']),
@@ -105,11 +105,11 @@ export const verbsSeed: Verb[] = [
     ]),
     table('Futur simple', ['parlerai', 'parleras', 'parlera', 'parlerons', 'parlerez', 'parleront']),
   ]),
-  verb('verb_finir', 'finir', 'to finish (-ir model verb)', 'ir', ['regular', 'ir verbs'], [
+  verb('verb_finir', 'finir', 'to finish (-ir model verb)', 'ir', ['regular', 'ir verbs', 'unit-4'], [
     table('Présent', ['finis', 'finis', 'finit', 'finissons', 'finissez', 'finissent']),
     table('Passé composé', ['ai fini', 'as fini', 'a fini', 'avons fini', 'avez fini', 'ont fini']),
   ]),
-  verb('verb_vendre', 'vendre', 'to sell (-re model verb)', 're', ['regular', 're verbs'], [
+  verb('verb_vendre', 'vendre', 'to sell (-re model verb)', 're', ['regular', 're verbs', 'unit-4'], [
     table('Présent', ['vends', 'vends', 'vend', 'vendons', 'vendez', 'vendent']),
     table('Passé composé', ['ai vendu', 'as vendu', 'a vendu', 'avons vendu', 'avez vendu', 'ont vendu']),
   ]),

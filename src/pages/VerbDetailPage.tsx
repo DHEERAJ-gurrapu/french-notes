@@ -9,6 +9,7 @@ import { DetailHeader } from '@/components/resources/DetailHeader';
 import { ConjugationTableView } from '@/components/resources/ConjugationTableView';
 import { ErrorState } from '@/components/ui/ErrorState';
 import type { Verb } from '@/types';
+import { chapterLabel } from '@/utils/chapter';
 
 const GROUP_LABEL: Record<Verb['group'], string> = {
   er: '-ER verb',
@@ -35,7 +36,7 @@ export function VerbDetailPage() {
       <Breadcrumbs items={[{ label: 'Verbs', to: '/verbs' }, { label: verb.infinitive }]} />
       <DetailHeader
         icon={GraduationCap}
-        eyebrow={GROUP_LABEL[verb.group]}
+        eyebrow={`${chapterLabel(verb.tags)} · ${GROUP_LABEL[verb.group]}`}
         title={verb.infinitive}
         id={verb.id}
         tags={verb.tags}

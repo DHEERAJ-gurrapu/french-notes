@@ -1,6 +1,7 @@
 import { NotebookPen } from 'lucide-react';
 import { useNotes } from '@/hooks/useResources';
 import { ResourceListPage } from '@/components/resources/ResourceListPage';
+import { chapterLabels } from '@/utils/chapter';
 
 export function NotesListPage() {
   const notes = useNotes();
@@ -10,10 +11,10 @@ export function NotesListPage() {
       items={notes}
       icon={NotebookPen}
       title="Notes"
-      description="Your French class notes, organised by topic."
+      description="Browse your French class notes by chapter or topic."
       getSearchableText={(n) => `${n.title} ${n.description ?? ''} ${n.content} ${n.tags.join(' ')}`}
-      getFilterValue={(n) => n.topic}
-      filterLabel="topics"
+      getFilterValue={(n) => chapterLabels(n.tags)}
+      filterLabel="chapters"
       emptyTitle="No notes yet"
       emptyDescription="Notes will appear here when available."
     />

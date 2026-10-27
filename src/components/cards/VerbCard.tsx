@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import type { Verb } from '@/types';
 import { Tag } from '@/components/ui/Tag';
 import { FavoriteButton } from '@/components/ui/FavoriteButton';
+import { chapterLabel } from '@/utils/chapter';
 
 const GROUP_LABEL: Record<Verb['group'], string> = {
   er: '-ER verb',
@@ -19,7 +20,7 @@ export function VerbCard({ verb }: { verb: Verb }) {
     >
       <div className="mb-2 flex items-start justify-between">
         <span className="rounded-full bg-bleu-50 px-2.5 py-0.5 text-xs font-medium text-bleu-700 dark:bg-bleu-950 dark:text-bleu-300">
-          {GROUP_LABEL[verb.group]}
+          {chapterLabel(verb.tags)} · {GROUP_LABEL[verb.group]}
         </span>
         <FavoriteButton id={verb.id} />
       </div>

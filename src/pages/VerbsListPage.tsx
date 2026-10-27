@@ -2,14 +2,7 @@ import { GraduationCap } from 'lucide-react';
 import { useVerbs } from '@/hooks/useResources';
 import { ResourceListPage } from '@/components/resources/ResourceListPage';
 import { VerbCard } from '@/components/cards/VerbCard';
-
-const GROUP_LABEL: Record<string, string> = {
-  er: '-ER verbs',
-  ir: '-IR verbs',
-  re: '-RE verbs',
-  irregular: 'Irregular',
-  pronominal: 'Pronominal',
-};
+import { chapterLabel } from '@/utils/chapter';
 
 export function VerbsListPage() {
   const verbs = useVerbs();
@@ -19,14 +12,14 @@ export function VerbsListPage() {
       items={verbs}
       icon={GraduationCap}
       title="Verbs"
-      description="Full conjugation tables across present, past and future tenses."
+      description="Choose a chapter to find its verbs and conjugations."
       getSearchableText={(v) =>
         `${v.infinitive} ${v.englishMeaning} ${v.tags.join(' ')} ${v.conjugations
           .flatMap((c) => c.rows.map((r) => r.form))
           .join(' ')}`
       }
-      getFilterValue={(v) => GROUP_LABEL[v.group]}
-      filterLabel="groups"
+      getFilterValue={(v) => chapterLabel(v.tags)}
+      filterLabel="chapters"
       emptyTitle="No verbs yet"
       emptyDescription="Verb conjugations will appear here when available."
       renderItem={(verb) => <VerbCard key={verb.id} verb={verb} />}

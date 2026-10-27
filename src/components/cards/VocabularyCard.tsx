@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import type { VocabularyEntry } from '@/types';
 import { Tag } from '@/components/ui/Tag';
 import { FavoriteButton } from '@/components/ui/FavoriteButton';
+import { chapterLabel } from '@/utils/chapter';
 
 const GENDER_LABEL: Record<NonNullable<VocabularyEntry['gender']>, string> = {
   m: 'masc.',
@@ -17,7 +18,7 @@ export function VocabularyCard({ entry }: { entry: VocabularyEntry }) {
     >
       <div className="mb-2 flex items-start justify-between">
         <span className="text-xs font-medium uppercase tracking-wide text-slate-400 dark:text-slate-500">
-          {entry.topic}
+          {chapterLabel(entry.tags)} · {entry.topic}
         </span>
         <FavoriteButton id={entry.id} />
       </div>

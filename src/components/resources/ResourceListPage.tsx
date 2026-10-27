@@ -17,7 +17,7 @@ interface ResourceListPageProps<T extends Resource> {
   description: string;
   accent?: 'bleu' | 'rouge';
   getSearchableText: (item: T) => string;
-  getFilterValue?: (item: T) => string | undefined;
+  getFilterValue?: (item: T) => string | string[] | undefined;
   filterLabel?: string;
   emptyTitle: string;
   emptyDescription: string;
@@ -67,12 +67,30 @@ export function ResourceListPage<T extends Resource>({
           </div>
           {extraFilters}
           {getFilterValue && filterOptions.length > 0 && (
-            <FilterChips
-              options={filterOptions}
-              active={filter}
-              onChange={setFilter}
-              allLabel={`All${filterLabel ? ` ${filterLabel}` : ''}`}
-            />
+            filterLabel === 'chapters' ? (
+              <section
+                aria-label="Browse by chapter"
+                className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900"
+              >
+                <h2 className="mb-1 text-sm font-semibold text-slate-800 dark:text-slate-100">Browse by chapter</h2>
+                <p className="mb-3 text-xs text-slate-500 dark:text-slate-400">
+                  Select a chapter to show only its {title.toLowerCase()}.
+                </p>
+                <FilterChips
+                  options={filterOptions}
+                  active={filter}
+                  onChange={setFilter}
+                  allLabel="All chapters"
+                />
+              </section>
+            ) : (
+              <FilterChips
+                options={filterOptions}
+                active={filter}
+                onChange={setFilter}
+                allLabel={`All${filterLabel ? ` ${filterLabel}` : ''}`}
+              />
+            )
           )}
         </div>
       )}

@@ -47,9 +47,23 @@ export const useResourceStore = create<ResourceStore>()(
       merge: (persistedState, currentState) => {
         const persisted = persistedState as Partial<ResourceStore>;
         const savedResources = persisted.resources ?? currentState.resources;
-        const savedIds = new Set(savedResources.map((resource) => resource.id));
+        const seedById = new Map(seedResources.map((resource) => [resource.id, resource]));
+        const chapterTags = (tags: string[]) => tags.filter((tag) => /^unit-\d+$/.test(tag));
+        const syncedSavedResources = savedResources.map((saved) => {
+          const seed = seedById.get(saved.id);
+          if (
+            !seed ||
+            (saved.type !== 'vocabulary' && saved.type !== 'verb' && saved.type !== 'grammar') ||
+            seed.type !== saved.type
+          ) {
+            return saved;
+          }
+          const tags = saved.tags.filter((tag) => !/^unit-\d+$/.test(tag));
+          return { ...saved, tags: [...tags, ...chapterTags(seed.tags)] };
+        });
+        const savedIds = new Set(syncedSavedResources.map((resource) => resource.id));
         const additions = seedResources.filter((resource) => !savedIds.has(resource.id));
-        return { ...currentState, ...persisted, resources: [...additions, ...savedResources] };
+        return { ...currentState, ...persisted, resources: [...additions, ...syncedSavedResources] };
       },
     },
   ),

@@ -2,7 +2,7 @@ import type { GrammarTopic } from '@/types';
 
 const UNIT4_DATE = '2026-10-02T09:00:00.000Z';
 
-export const grammarSeed: GrammarTopic[] = [
+export const grammarSeed: GrammarTopic[] = ([
   // ---- UNITÉ 4 AU TRAVAIL ! ----
   {
     id: 'gram_unit4_futur_proche_negatif',
@@ -668,4 +668,32 @@ Key differences to watch for:
 - Negation wraps around the verb (ne…pas).`,
     examples: [{ fr: 'Nous sommes à la boulangerie.', en: 'We are at the bakery.' }],
   },
-];
+] as GrammarTopic[]).map((topic): GrammarTopic => {
+  if (topic.tags.some((tag) => /^unit-\d+$/.test(tag))) return topic;
+  const chapterById: Record<string, string> = {
+    gram_alphabet: 'unit-1',
+    gram_numbers: 'unit-1',
+    gram_articles: 'unit-2',
+    gram_gender: 'unit-1',
+    gram_pronouns: 'unit-1',
+    gram_er_verbs: 'unit-3',
+    gram_ir_verbs: 'unit-2',
+    gram_re_verbs: 'unit-2',
+    gram_etre: 'unit-1',
+    gram_avoir: 'unit-1',
+    gram_aller: 'unit-2',
+    gram_faire: 'unit-3',
+    gram_present: 'unit-1',
+    gram_passe_compose: 'unit-2',
+    gram_imparfait: 'unit-4',
+    gram_futur_proche: 'unit-4',
+    gram_futur_simple: 'unit-4',
+    gram_adjectives: 'unit-1',
+    gram_negatives: 'unit-4',
+    gram_questions: 'unit-1',
+    gram_prepositions: 'unit-2',
+    gram_sentence_structure: 'unit-1',
+  };
+  const chapter = chapterById[topic.id] ?? 'unit-1';
+  return { ...topic, tags: [...topic.tags, chapter] };
+});

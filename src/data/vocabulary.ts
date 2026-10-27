@@ -417,7 +417,31 @@ export const vocabularySeed: VocabularyEntry[] = [
     ['Art', 'un graveur', 'engraver', undefined, ['art'], 'm'],
     ['Art', 'une scène d’intérieur', 'interior scene', undefined, ['art'], 'f'],
   ]),
-];
+].map((item) => {
+  // Put the original starter vocabulary into the chapters represented by the
+  // class notes. Unit 4 vocabulary is tagged explicitly in unit4() above.
+  if (item.tags.some((tag) => /^unit-\d+$/.test(tag))) return item;
+  const chapterByTopic: Record<string, string> = {
+    Family: 'unit-1',
+    Appearance: 'unit-1',
+    Relationships: 'unit-1',
+    Body: 'unit-1',
+    Travel: 'unit-2',
+    'Writing & Communication': 'unit-2',
+    Leisure: 'unit-3',
+    'Media & Reading': 'unit-3',
+    Sports: 'unit-3',
+    Holidays: 'unit-3',
+    Weather: 'unit-3',
+    School: 'unit-4',
+    'Daily Routine': 'unit-4',
+    Clothes: 'unit-4',
+    Food: 'unit-4',
+    House: 'unit-4',
+  };
+  const chapter = chapterByTopic[item.topic] ?? 'unit-1';
+  return { ...item, tags: [...item.tags, chapter] };
+});
 
 function unit4(
   rows: [string, string, string, string | undefined, string[], VocabularyEntry['gender']?][],
