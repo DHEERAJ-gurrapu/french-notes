@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { useMemo, useState, type ReactNode } from 'react';
 import { SearchX } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import type { Resource } from '@/types';
@@ -18,6 +18,7 @@ interface ResourceListPageProps<T extends Resource> {
   accent?: 'bleu' | 'rouge';
   getSearchableText: (item: T) => string;
   getFilterValue?: (item: T) => string | string[] | undefined;
+  getSubtopicValue?: (item: T) => string | undefined;
   filterLabel?: string;
   emptyTitle: string;
   emptyDescription: string;
@@ -33,6 +34,7 @@ export function ResourceListPage<T extends Resource>({
   accent = 'bleu',
   getSearchableText,
   getFilterValue,
+  getSubtopicValue,
   filterLabel,
   emptyTitle,
   emptyDescription,
@@ -44,6 +46,29 @@ export function ResourceListPage<T extends Resource>({
     getSearchableText,
     getFilterValue,
   );
+  const [subtopic, setSubtopic] = useState<string | null>(null);
+  const subtopicOptions = useMemo(() => {
+    if (!filter || !getFilterValue || !getSubtopicValue) return [];
+    const counts = new Map<string, number>();
+    for (const item of items) {
+      const chapter = getFilterValue(item);
+      const belongsToChapter = Array.isArray(chapter) ? chapter.includes(filter) : chapter === filter;
+      const value = belongsToChapter ? getSubtopicValue(item) : undefined;
+      if (value) counts.set(value, (counts.get(value) ?? 0) + 1);
+    }
+    return [...counts.entries()]
+      .map(([value, count]) => ({ value, label: value, count }))
+      .sort((a, b) => a.label.localeCompare(b.label));
+  }, [items, filter, getFilterValue, getSubtopicValue]);
+  const visibleItems = useMemo(
+    () => filtered.filter((item) => !subtopic || getSubtopicValue?.(item) === subtopic),
+    [filtered, subtopic, getSubtopicValue],
+  );
+
+  const selectChapter = (value: string | null) => {
+    setFilter(value);
+    setSubtopic(null);
+  };
 
   return (
     <div>
@@ -79,9 +104,23 @@ export function ResourceListPage<T extends Resource>({
                 <FilterChips
                   options={filterOptions}
                   active={filter}
-                  onChange={setFilter}
+                  onChange={selectChapter}
                   allLabel="All chapters"
                 />
+                {filter && getSubtopicValue && subtopicOptions.length > 0 && (
+                  <div className="mt-4 border-t border-slate-100 pt-4 dark:border-slate-800">
+                    <h3 className="mb-1 text-sm font-semibold text-slate-800 dark:text-slate-100">Chapter subtopics</h3>
+                    <p className="mb-3 text-xs text-slate-500 dark:text-slate-400">
+                      Choose a subtopic to narrow down {title.toLowerCase()} in this chapter.
+                    </p>
+                    <FilterChips
+                      options={subtopicOptions}
+                      active={subtopic}
+                      onChange={setSubtopic}
+                      allLabel="All subtopics"
+                    />
+                  </div>
+                )}
               </section>
             ) : (
               <FilterChips
@@ -101,11 +140,11 @@ export function ResourceListPage<T extends Resource>({
           title={emptyTitle}
           description={emptyDescription}
         />
-      ) : filtered.length === 0 ? (
+      ) : visibleItems.length === 0 ? (
         <EmptyState icon={SearchX} title="No matches" description="Try a different search term or filter." />
       ) : (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((item) => (renderItem ? renderItem(item) : <ResourceCard key={item.id} resource={item} />))}
+          {visibleItems.map((item) => (renderItem ? renderItem(item) : <ResourceCard key={item.id} resource={item} />))}
         </div>
       )}
     </div>

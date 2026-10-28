@@ -14,6 +14,7 @@ export function NotesListPage() {
       description="Browse your French class notes by chapter or topic."
       getSearchableText={(n) => `${n.title} ${n.description ?? ''} ${n.content} ${n.tags.join(' ')}`}
       getFilterValue={(n) => chapterLabels(n.tags)}
+      getSubtopicValue={(n) => n.topic}
       filterLabel="chapters"
       emptyTitle="No notes yet"
       emptyDescription="Notes will appear here when available."

@@ -15,6 +15,7 @@ export function PdfsListPage() {
       accent="rouge"
       getSearchableText={(p) => `${p.title} ${p.description ?? ''} ${p.category} ${p.tags.join(' ')}`}
       getFilterValue={(p) => chapterLabels(p.tags)}
+      getSubtopicValue={(p) => p.category}
       filterLabel="chapters"
       emptyTitle="No PDFs yet"
       emptyDescription="PDFs will appear here when available."

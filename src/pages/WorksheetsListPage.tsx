@@ -17,6 +17,7 @@ export function WorksheetsListPage() {
         `${w.title} ${w.subject} ${w.description ?? ''} ${w.notes ?? ''} ${w.corrections ?? ''} ${w.tags.join(' ')}`
       }
       getFilterValue={(w) => chapterLabels(w.tags)}
+      getSubtopicValue={(w) => w.subject}
       filterLabel="chapters"
       emptyTitle="No worksheets yet"
       emptyDescription="Worksheets will appear here when available."

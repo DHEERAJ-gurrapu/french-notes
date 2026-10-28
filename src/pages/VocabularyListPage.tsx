@@ -15,6 +15,7 @@ export function VocabularyListPage() {
       description="Choose a chapter to see all of its vocabulary, or search by French or English."
       getSearchableText={(v) => `${v.french} ${v.english} ${v.example ?? ''} ${v.topic} ${v.tags.join(' ')}`}
       getFilterValue={(v) => chapterLabel(v.tags)}
+      getSubtopicValue={(v) => v.topic}
       filterLabel="chapters"
       emptyTitle="No vocabulary yet"
       emptyDescription="Vocabulary entries will appear here when available."
