@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import type { VocabularyEntry } from '@/types';
 import { Tag } from '@/components/ui/Tag';
 import { FavoriteButton } from '@/components/ui/FavoriteButton';
+import { VocabularyProgressButton } from '@/components/ui/VocabularyProgressButton';
 import { chapterLabel } from '@/utils/chapter';
 
 const GENDER_LABEL: Record<NonNullable<VocabularyEntry['gender']>, string> = {
@@ -20,7 +21,10 @@ export function VocabularyCard({ entry }: { entry: VocabularyEntry }) {
         <span className="text-xs font-medium uppercase tracking-wide text-slate-400 dark:text-slate-500">
           {chapterLabel(entry.tags)} · {entry.topic}
         </span>
-        <FavoriteButton id={entry.id} />
+        <div className="flex items-center gap-1">
+          <VocabularyProgressButton id={entry.id} />
+          <FavoriteButton id={entry.id} />
+        </div>
       </div>
       <p className="font-display text-lg font-semibold text-bleu-700 group-hover:text-bleu-800 dark:text-bleu-400 dark:group-hover:text-bleu-300">
         {entry.french}

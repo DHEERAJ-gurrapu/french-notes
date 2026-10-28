@@ -19,6 +19,7 @@ interface ResourceListPageProps<T extends Resource> {
   getSearchableText: (item: T) => string;
   getFilterValue?: (item: T) => string | string[] | undefined;
   getSubtopicValue?: (item: T) => string | undefined;
+  getProgressValue?: (item: T) => string | undefined;
   filterLabel?: string;
   emptyTitle: string;
   emptyDescription: string;
@@ -35,6 +36,7 @@ export function ResourceListPage<T extends Resource>({
   getSearchableText,
   getFilterValue,
   getSubtopicValue,
+  getProgressValue,
   filterLabel,
   emptyTitle,
   emptyDescription,
@@ -47,6 +49,7 @@ export function ResourceListPage<T extends Resource>({
     getFilterValue,
   );
   const [subtopic, setSubtopic] = useState<string | null>(null);
+  const [progress, setProgress] = useState<string | null>(null);
   const subtopicOptions = useMemo(() => {
     if (!filter || !getFilterValue || !getSubtopicValue) return [];
     const counts = new Map<string, number>();
@@ -61,9 +64,23 @@ export function ResourceListPage<T extends Resource>({
       .sort((a, b) => a.label.localeCompare(b.label));
   }, [items, filter, getFilterValue, getSubtopicValue]);
   const visibleItems = useMemo(
-    () => filtered.filter((item) => !subtopic || getSubtopicValue?.(item) === subtopic),
-    [filtered, subtopic, getSubtopicValue],
+    () => filtered.filter((item) =>
+      (!subtopic || getSubtopicValue?.(item) === subtopic) &&
+      (!progress || getProgressValue?.(item) === progress),
+    ),
+    [filtered, subtopic, progress, getSubtopicValue, getProgressValue],
   );
+  const progressOptions = useMemo(() => {
+    if (!getProgressValue) return [];
+    const counts = new Map<string, number>();
+    for (const item of items) {
+      const chapter = getFilterValue?.(item);
+      const belongsToChapter = !filter || (Array.isArray(chapter) ? chapter.includes(filter) : chapter === filter);
+      const value = belongsToChapter ? getProgressValue(item) : undefined;
+      if (value) counts.set(value, (counts.get(value) ?? 0) + 1);
+    }
+    return [...counts.entries()].map(([value, count]) => ({ value, label: value, count }));
+  }, [items, filter, getFilterValue, getProgressValue]);
 
   const selectChapter = (value: string | null) => {
     setFilter(value);
@@ -118,6 +135,20 @@ export function ResourceListPage<T extends Resource>({
                       active={subtopic}
                       onChange={setSubtopic}
                       allLabel="All subtopics"
+                    />
+                  </div>
+                )}
+                {getProgressValue && progressOptions.length > 0 && (
+                  <div className="mt-4 border-t border-slate-100 pt-4 dark:border-slate-800">
+                    <h3 className="mb-1 text-sm font-semibold text-slate-800 dark:text-slate-100">Study progress</h3>
+                    <p className="mb-3 text-xs text-slate-500 dark:text-slate-400">
+                      Keep track of vocabulary you have finished.
+                    </p>
+                    <FilterChips
+                      options={progressOptions}
+                      active={progress}
+                      onChange={setProgress}
+                      allLabel="All vocabulary"
                     />
                   </div>
                 )}

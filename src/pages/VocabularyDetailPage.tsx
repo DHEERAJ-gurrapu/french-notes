@@ -7,6 +7,7 @@ import { DetailHeader } from '@/components/resources/DetailHeader';
 import { ErrorState } from '@/components/ui/ErrorState';
 import type { VocabularyEntry } from '@/types';
 import { chapterLabel } from '@/utils/chapter';
+import { VocabularyProgressButton } from '@/components/ui/VocabularyProgressButton';
 
 const GENDER_LABEL: Record<NonNullable<VocabularyEntry['gender']>, string> = {
   m: 'masculine',
@@ -38,7 +39,10 @@ export function VocabularyDetailPage() {
       />
 
       <div className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
-        <p className="text-sm font-medium uppercase tracking-wide text-slate-400 dark:text-slate-500">English</p>
+        <div className="mb-3 flex items-center justify-between gap-3">
+          <p className="text-sm font-medium uppercase tracking-wide text-slate-400 dark:text-slate-500">English</p>
+          <VocabularyProgressButton id={entry.id} />
+        </div>
         <p className="mb-4 text-xl text-slate-800 dark:text-slate-100">{entry.english}</p>
 
         {entry.example && (

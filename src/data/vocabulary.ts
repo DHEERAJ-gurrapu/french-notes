@@ -425,22 +425,17 @@ export const vocabularySeed: VocabularyEntry[] = [
     Family: 'unit-1',
     Appearance: 'unit-1',
     Relationships: 'unit-1',
-    Body: 'unit-1',
     Travel: 'unit-2',
     'Writing & Communication': 'unit-2',
     Leisure: 'unit-3',
     'Media & Reading': 'unit-3',
     Sports: 'unit-3',
-    Holidays: 'unit-3',
-    Weather: 'unit-3',
     School: 'unit-4',
-    'Daily Routine': 'unit-4',
-    Clothes: 'unit-4',
-    Food: 'unit-4',
-    House: 'unit-4',
   };
-  const chapter = chapterByTopic[item.topic] ?? 'unit-1';
-  return { ...item, tags: [...item.tags, chapter] };
+  const chapter = item.topic === 'Body'
+    ? (item.french === 'les yeux' || item.french === 'les cheveux' ? 'unit-1' : undefined)
+    : chapterByTopic[item.topic];
+  return chapter ? { ...item, tags: [...item.tags, chapter] } : item;
 });
 
 function unit4(

@@ -17,6 +17,10 @@ interface UiStore {
   isFavorite: (id: string) => boolean;
   toggleFavorite: (id: string) => void;
 
+  completedVocabulary: string[];
+  isVocabularyComplete: (id: string) => boolean;
+  toggleVocabularyComplete: (id: string) => void;
+
   recentlyViewed: RecentEntry[];
   recordView: (id: string) => void;
 }
@@ -41,6 +45,17 @@ export const useUiStore = create<UiStore>()(
           favorites: favorites.includes(id)
             ? favorites.filter((f) => f !== id)
             : [id, ...favorites],
+        });
+      },
+
+      completedVocabulary: [],
+      isVocabularyComplete: (id) => get().completedVocabulary.includes(id),
+      toggleVocabularyComplete: (id) => {
+        const { completedVocabulary } = get();
+        set({
+          completedVocabulary: completedVocabulary.includes(id)
+            ? completedVocabulary.filter((entryId) => entryId !== id)
+            : [...completedVocabulary, id],
         });
       },
 
